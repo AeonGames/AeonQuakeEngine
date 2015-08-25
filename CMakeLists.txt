@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.0.0)
+project(AeonQuakeEngine)
+
+set(HTTP_PROXY "" CACHE STRING "HTTP proxy for package downloading.")
+
+find_package(OpenGL REQUIRED)
+
+add_subdirectory(code)
