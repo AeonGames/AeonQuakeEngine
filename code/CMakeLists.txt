@@ -1,3 +1,5 @@
+add_subdirectory(botlib)
+add_subdirectory(game)
 add_definitions(-D_CRT_SECURE_NO_WARNINGS -D_CRT_NONSTDC_NO_DEPRECATE)
 set(AEONQUAKE_SOURCES
 	client/cl_cgame.c
@@ -49,8 +51,7 @@ set(AEONQUAKE_SOURCES
 	win32/win_shared.c
 	win32/win_snd.c
 	win32/win_syscon.c
-	win32/win_wndproc.c
-	
+	win32/win_wndproc.c	
 	game/bg_public.h
 	cgame/cg_public.h
 	client/client.h
@@ -81,4 +82,5 @@ set(AEONQUAKE_SOURCES
 	win32/winquake.rc
 )
 add_executable(aeonquake WIN32 ${AEONQUAKE_SOURCES})
-target_link_libraries(aeonquake ${OPENGL_gl_LIBRARY} ${OPENGL_glu_LIBRARY} ws2_32 winmm)
+add_dependencies(aeonquake botlib qagamex86)
+target_link_libraries(aeonquake botlib qagamex86 ${OPENGL_gl_LIBRARY} ${OPENGL_glu_LIBRARY} ws2_32 winmm)
