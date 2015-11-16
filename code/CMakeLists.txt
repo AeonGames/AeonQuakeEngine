@@ -1,4 +1,5 @@
 add_subdirectory(botlib)
+add_subdirectory(renderer)
 add_subdirectory(game)
 add_definitions(-D_CRT_SECURE_NO_WARNINGS -D_CRT_NONSTDC_NO_DEPRECATE)
 set(AEONQUAKE_SOURCES
@@ -82,5 +83,5 @@ set(AEONQUAKE_SOURCES
 	win32/winquake.rc
 )
 add_executable(aeonquake WIN32 ${AEONQUAKE_SOURCES})
-add_dependencies(aeonquake botlib qagamex86)
-target_link_libraries(aeonquake botlib qagamex86 ${OPENGL_gl_LIBRARY} ${OPENGL_glu_LIBRARY} ws2_32 winmm)
+add_dependencies(aeonquake botlib renderer)
+target_link_libraries(aeonquake botlib renderer ${OPENGL_gl_LIBRARY} ${OPENGL_glu_LIBRARY} ws2_32 winmm)
